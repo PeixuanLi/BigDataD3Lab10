@@ -27,9 +27,9 @@
 	width=500;
 	height=500;
 	var jsonCircles = [
-	{"x_axis":50,"y_axis":50,"radius":5},
-	{"x_axis":100,"y_axis":100,"radius":6},
-	{"x_axis":200,"y_axis":150,"radius":7}   
+	{"x_axis":50,"y_axis":50,"name":"aa"},
+	{"x_axis":100,"y_axis":100,"name":"bb"},
+	{"x_axis":200,"y_axis":150,"name":"cc"}   
 	];
 	var xmax=Math.max.apply(Math,jsonCircles.map(function(o){return o.x_axis;}))
 	var ymax=Math.max.apply(Math,jsonCircles.map(function(o){return o.y_axis;}))
@@ -53,7 +53,8 @@
 	.attr("transform","translate(" + padding.left + "," + padding.top + ")")
 	.attr("cx",function(d){return xlinear(d.x_axis);})
 	.attr("cy",function(d){return ylinear(d.y_axis);})
-	.attr("r",5);
+	.attr("r",5)
+	.attr("text",function(d){return d.name;});
 	
 	
 	
@@ -99,7 +100,7 @@
   	
  
 	circles.on("mouseover", function(d,i){
-        var str=d3.select(this).attr("r")
+        var str=d3.select(this).attr("text")
         d3.select("body").selectAll("h4").text(str)
 	}	
     );
