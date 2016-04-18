@@ -1,0 +1,55 @@
+<html>
+<head>
+  <!-- complete your HTML head here -->
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+  <!-- script type="text/javascript" src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="myscripts.js"></script> 
+  <script src="display.js"></script> 
+</head>
+<body>
+<h4 id="hovered">chevrolet chevelle malibu</h4>
+<div class="plot">
+  <svg >
+    
+  </svg>
+</div>
+<div class="ui">
+  <div>
+    <label>X-Axis</label>
+    <select id="sel-x">
+      <option value="name">name</option>
+      <option value="mpg">mpg</option>
+      <option value="cylinders">cylinders</option>
+      <option value="displacement">displacement</option>
+      <option value="horsepower">horsepower</option>
+      <option value="weight">weight</option>
+      <option value="acceleration">acceleration</option>
+      <option value="model.year">model.year</option>
+      <option value="origin">origin</option>
+
+    </select>
+    <label>Y-Axis</label>
+    <select id="sel-y">
+      <option value="name">name</option>
+      <option value="mpg">mpg</option>
+      <option value="cylinders">cylinders</option>
+      <option value="displacement">displacement</option>
+      <option value="horsepower">horsepower</option>
+      <option value="weight">weight</option>
+      <option value="acceleration">acceleration</option>
+      <option value="model.year">model.year</option>
+      <option value="origin">origin</option>
+    </select>
+  </div>
+  <div>
+    <input id="mpg-min" type="text" size="10">
+    <input id="mpg-max" type="text" size="10">
+    <button id="update" onclick="display()">Query MPG</button>
+  </div>
+</div>
+</body>
+</html>
+
