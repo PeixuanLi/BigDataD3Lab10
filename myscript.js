@@ -1,6 +1,8 @@
 var allData = [];
 var xResult = [];
 var yResult = [];
+var nameResult = [];
+var finalResult = [];
 
 $().ready(function(){
 
@@ -10,7 +12,7 @@ $().ready(function(){
 
 });
 // 现在函数的返回值是一个被过滤的数组，其中第一项是X的结果，第二项是Y的结果。
-function myFunction(){
+function getData(){
      var xSelect = document.getElementById("sel-x");
      var xValue = xSelect.options[xSelect.selectedIndex].value;
 
@@ -23,19 +25,29 @@ function myFunction(){
      for( var i=0; i<allData.length; i++ ){
         // allData[i].xValue;
         // console.log(xValue+";"+yValue);
+
         var currentMpg = 0+allData[i].mpg;
         if(mpgMin < currentMpg && currentMpg < mpgMax){
-            xResult.push(optionMatch(xValue,allData[i]));
-            yResult.push(optionMatch(yValue,allData[i]));
+            var x_axis = optionMatch(xValue,allData[i]);
+            var y_axis = optionMatch(yValue,allData[i]);
+            var name = allData[i].name;
+
+            // xResult.push(x_axis);
+            // yResult.push(y_axis);
+            // nameResult..push(name);
+
+            var currentResult = {"x_axis":x_axis,"y_axis":y_axis,"name":name}; 
+            finalResult.push(currentResult)
         }
         
     }
 
-    var result = {"x":xResult,"y":yResult};   
+    var result = {"x":xResult,"y":yResult,"name":nameResult};   
     //console.log(xResult+";"+yResult);
     //console.log(mpgMin+";"+mpgMax);
-    console.log(result.x);
-    return result;
+    //console.log(result.x);
+    console.log(finalResult[0]);
+    return finalResult;
 }
 //name,mpg,cylinders,displacement,horsepower,weight,acceleration,model.year,origin
 function optionMatch(input,set){
