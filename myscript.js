@@ -31,10 +31,10 @@ function myFunction(){
         
     }
 
-    var result = [xResult,yResult];   
+    var result = {"x":xResult,"y":yResult};   
     //console.log(xResult+";"+yResult);
     //console.log(mpgMin+";"+mpgMax);
-    console.log(result);
+    console.log(result.x);
     return result;
 }
 //name,mpg,cylinders,displacement,horsepower,weight,acceleration,model.year,origin
