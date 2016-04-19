@@ -1,12 +1,14 @@
 function display(){
-	/*-------------added-----------------*/
-	 var xSelect = document.getElementById("sel-x");
+     var xSelect = document.getElementById("sel-x");
      var xValue = xSelect.options[xSelect.selectedIndex].value;
 
      var ySelect = document.getElementById("sel-y");
      var yValue = ySelect.options[ySelect.selectedIndex].value;
 
-	/*-----------------------------------*/
+
+     d3.select(".plot").text("");
+     d3.select(".plot").insert("svg");
+
 	var padding = {left:30, right:30, top:20, bottom:20};
 	width=500;
 	height=500;
