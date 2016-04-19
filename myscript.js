@@ -3,7 +3,7 @@ var xResult = [];
 var yResult = [];
 var nameResult = [];
 var finalResult = [];
-
+var mpgs = [];
 $().ready(function(){
 
     d3.csv("car.csv",function(error,csvdata){     
@@ -19,25 +19,26 @@ function getData(){
      var ySelect = document.getElementById("sel-y");
      var yValue = ySelect.options[ySelect.selectedIndex].value;
 
-     var mpgMin = document.getElementById("mpg-min").value;
-     var mpgMax = document.getElementById("mpg-max").value;
+     var mpgMin = +document.getElementById("mpg-min").value;
+     var mpgMax = +document.getElementById("mpg-max").value;
 
      for( var i=0; i<allData.length; i++ ){
         // allData[i].xValue;
         // console.log(xValue+";"+yValue);
 
-        var currentMpg = 0+allData[i].mpg;
-        if(mpgMin < currentMpg && currentMpg < mpgMax){
+        var currentMpg = +allData[i].mpg;
+        if(mpgMin <= currentMpg && currentMpg <= mpgMax){
             var x_axis = optionMatch(xValue,allData[i]);
             var y_axis = optionMatch(yValue,allData[i]);
             var name = allData[i].name;
 
             // xResult.push(x_axis);
             // yResult.push(y_axis);
-            // nameResult..push(name);
+            // nameResult.push(name);
 
             var currentResult = {"x_axis":x_axis,"y_axis":y_axis,"name":name}; 
-            finalResult.push(currentResult)
+            finalResult.push(currentResult);
+
         }
         
     }
@@ -46,8 +47,10 @@ function getData(){
     //console.log(xResult+";"+yResult);
     //console.log(mpgMin+";"+mpgMax);
     //console.log(result.x);
-    console.log(finalResult[0]);
+    //console.log(finalResult[0]);
+    //console.log(mpgs);
     return finalResult;
+
 }
 //name,mpg,cylinders,displacement,horsepower,weight,acceleration,model.year,origin
 function optionMatch(input,set){
