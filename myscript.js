@@ -72,7 +72,7 @@ function optionMatch(input,set){
     if(input == "acceleration") 
         result = set.acceleration;
     if(input == "model.year") 
-        result = set.modelyear;
+        result = set["model.year"];
     if(input == "origin") 
         result = set.origin;
 
