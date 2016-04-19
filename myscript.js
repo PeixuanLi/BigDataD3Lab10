@@ -21,6 +21,7 @@ function getData(){
 
      var mpgMin = +document.getElementById("mpg-min").value;
      var mpgMax = +document.getElementById("mpg-max").value;
+     finalResult = [];
 
      for( var i=0; i<allData.length; i++ ){
         // allData[i].xValue;
