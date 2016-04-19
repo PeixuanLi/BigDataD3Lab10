@@ -20,7 +20,7 @@ function display(){
  	var ylinear = d3.scale.linear()
 				.domain([0, ymax+50])
 				.range([height - padding.top - padding.bottom,0]);
-				
+
 	var svgContainer = d3.select("svg")
 	.attr("width",width)
 	.attr("height",height);
@@ -44,6 +44,7 @@ function display(){
 
 		var circles =svgContainer.selectAll("circle");
 		svgContainer.selectAll("text").remove();
+		svgContainer.selectAll("g").remove();
 /*-----------------------------------*/
  
 	var circleAttributes = circles
